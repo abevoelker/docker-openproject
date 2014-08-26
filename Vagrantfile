@@ -5,6 +5,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 ENV['VAGRANT_DEFAULT_PROVIDER'] ||= 'docker'
+# Vagrant doesn't play well w/ Docker and parallel provisioning
+ENV['VAGRANT_NO_PARALLEL'] ||= 'true'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "postgres" do |postgres|
