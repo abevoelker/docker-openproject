@@ -35,6 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       d.image = 'abevoelker/openproject'
       d.name  = 'openproject'
       d.cmd   = ['/var/www/openproject/docker/scripts/start_application.sh']
+      d.ports = ['8080:80']
 
       d.link('openproject_postgres:postgres')
       d.link('openproject_memcached:memcached')
