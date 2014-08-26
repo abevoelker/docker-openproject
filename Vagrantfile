@@ -34,18 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     openproject.vm.provider 'docker' do |d|
       d.image = 'abevoelker/openproject'
       d.name  = 'openproject'
-      d.cmd   = ['/var/www/openproject/docker/scripts/run_rails.sh']
-
-      d.link('openproject_postgres:postgres')
-      d.link('openproject_memcached:memcached')
-    end
-  end
-
-  config.vm.define "openproject_delayed_job" do |openproject|
-    openproject.vm.provider 'docker' do |d|
-      d.image = 'abevoelker/openproject'
-      d.name  = 'openproject_delayed_job'
-      d.cmd   = ['/var/www/openproject/docker/scripts/run_background_job.sh']
+      d.cmd   = ['/var/www/openproject/docker/scripts/start_application.sh']
 
       d.link('openproject_postgres:postgres')
       d.link('openproject_memcached:memcached')

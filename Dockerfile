@@ -35,7 +35,8 @@ RUN chown -R openproject:openproject /etc/nginx/sites-available &&\
     ln -s ../sites-available/openproject.conf
 
 # Add supervisord configs
-ADD supervisord/rails.conf /etc/supervisor/conf.d/
-ADD supervisord/nginx.conf /etc/supervisor/conf.d/
+ADD supervisord/rails.conf       /etc/supervisor/conf.d/
+ADD supervisord/nginx.conf       /etc/supervisor/conf.d/
+ADD supervisord/delayed_job.conf /etc/supervisor/conf.d/
 
-CMD ["/var/www/openproject/docker/scripts/run_rails.sh"]
+CMD ["/var/www/openproject/docker/scripts/start_application.sh"]

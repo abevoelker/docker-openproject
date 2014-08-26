@@ -7,5 +7,5 @@ if [ ! -f /var/www/openproject/.setup-complete ]; then
   echo -e "\nSetup complete!\n"
 fi
 
-echo -e "\nBooting Rails application..."
+echo -e "\nBooting application..."
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf -n
