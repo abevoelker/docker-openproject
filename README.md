@@ -11,7 +11,7 @@ This is currently relying on a linked database container.  Here's an example usa
 ```
 docker run -d --name openproject-postgres-data -v /data busybox true
 docker run -d --name openproject-postgres --volumes-from openproject-postgres-data -e USER=super -e PASS=password paintedfox/postgresql
-docker run -d --name openproject --link openproject-postgres:postgres -p 8080:80 abevoelker/openproject /var/www/openproject/docker/scripts/start_application.sh
+docker run -d --name openproject --link openproject-postgres:postgres -p 8080:80 abevoelker/openproject
 ```
 
 Wait a little while for the database setup and migrations to run.  After a short period the application should be available at http://localhost:8080.  You can check the database migration progress with `docker attach openproject`.
